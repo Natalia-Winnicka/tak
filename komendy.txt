@@ -1,0 +1,10 @@
+ CREATE TABLE postac(id_postac INT PRIMARY KEY, nazwa VARCHAR(40), rodzaj ENUM('wiking', 'ptak', 'kobieta'), data_ur DATE, wiek INT UNSIGNED);
+
+ INSERT INTO postac VALUES ('1', 'Bjorn', 'wiking', '2012-2-4', '33');
+
+UPDATE postac SET wiek='33' WHERE nazwa='Bjorn';
+
+ SELECT * FROM postac;
+
+CREATE TABLE walizka(id_walizki INT PRIMARY KEY, pojemnosc INT UNSIGNED, kolor ENUM('rozowy', 'czerwony', 'teczowy', 'zolty'), id_wlasciciela INT, FOREIGN KEY(id_wlasciciela) REFERENCES postac(id_postac) ON DELETE CASCADE);
+
