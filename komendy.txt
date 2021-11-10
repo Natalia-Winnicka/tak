@@ -16,7 +16,9 @@ insert into przetwory(id_wykonawcy,zawartosc,id_konsumenta) values (1,'kapusta',
 
 insert into postac values ('4','dfajkl','wiking','1928.02.05',21);
 
- create table statek(nazwa_statku int primary key auto_increment,rodzaj_statku int,data_wodowania date,max_ladownosc int not null);
+create table statek(nazwa_statku int primary key auto_increment,rodzaj_statku int,data_wodowania date,max_ladownosc int not null);
+
+insert into statek(rodzaj_statku,data_wodowania,max_ladownosc) values (1,'1647.05.21',4);
 
 ALTER TABLE postac ADD FOREIGN KEY(statek) REFERENCES statek(nazwa_statku) ON DELETE CASCADE;
 

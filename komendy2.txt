@@ -1,0 +1,9 @@
+DELETE FROM postac WHERE nazwa='galcgbfa';
+
+ALTER TABLE walizka DROP FOREIGN KEY walizka_ibfk_1;
+
+ALTER TABLE przetwory  DROP FOREIGN KEY przetwory_ibfk_1;
+
+ALTER TABLE przetwory  DROP FOREIGN KEY przetwory_ibfk_2;
+
+ALTER TABLE  postac DROP PRIMARY KEY;
