@@ -8,3 +8,22 @@ UPDATE postac SET wiek='33' WHERE nazwa='Bjorn';
 
 CREATE TABLE walizka(id_walizki INT PRIMARY KEY, pojemnosc INT UNSIGNED, kolor ENUM('rozowy', 'czerwony', 'teczowy', 'zolty'), id_wlasciciela INT, FOREIGN KEY(id_wlasciciela) REFERENCES postac(id_postac) ON DELETE CASCADE);
 
+ create table izba(adres_budynku int auto_increment,nazwa_izby varchar(40),metraz int not null,wlasciciel int, foreign key (wlasciciel) references postac(id_postac) on delete set null,primary key (adres_budynku,nazwa_izby));
+
+ create table przetwory(id_przetworu int primary key auto_increment, rok_produkcji YEAR DEFAULT 1954,id_wykonawcy int, zawartosc varchar(70),dodatek varchar(50) default 'papryczka chili',id_konsumenta int, foreign key (id_wykonawcy) references postac(id_postac), foreign key (id_konsumenta) references postac(id_postac));
+
+insert into przetwory(id_wykonawcy,zawartosc,id_konsumenta) values (1,'kapusta',2);
+
+insert into postac values ('4','dfajkl','wiking','1928.02.05',21);
+
+ create table statek(nazwa_statku int primary key auto_increment,rodzaj_statku int,data_wodowania date,max_ladownosc int not null);
+
+ALTER TABLE postac ADD FOREIGN KEY(statek) REFERENCES statek(nazwa_statku) ON DELETE CASCADE;
+
+update postac set statek = 1 where nazwa='Bjorn';
+
+update postac set statek = 1 where nazwa='dfajkl';
+
+delete from izba where nazwa_izby='spizarnia';
+
+DROP TABLE izba;
