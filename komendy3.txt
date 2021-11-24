@@ -1,0 +1,25 @@
+ USE wikingowie;
+ 
+CREATE TABLE kreatura  AS SELECT * FROM wikingowie.kreatura;
+
+CREATE TABLE zasob  AS SELECT * FROM wikingowie.zasob;
+
+CREATE TABLE ekwipunek  AS SELECT * FROM wikingowie.ekwipunek;
+
+SELECT * FROM zasob;
+
+SELECT * FROM zasob WHERE rodzaj='jedzenie';
+
+SELECT idZasobu, ilosc FROM ekwipunek WHERE idKreatury=1 OR idKreatury=3 OR idKreatury=5;
+
+SELECT * FROM kreatura WHERE rodzaj!='wiedzma' and udzwig>=50;
+
+SELECT * FROM zasob WHERE waga between '2'and '5';
+
+SELECT * FROM kreatura WHERE nazwa LIKE '%or%' and udzwig between '30'and '70';
+
+SELECT * FROM zasob WHERE MONTH(dataPozyskania)=7 or MONTH(dataPozyskania)=8;
+
+SELECT * FROM zasob WHERE rodzaj is not NULL order by waga asc;
+
+SELECT * FROM kreatura order by dataUr asc limit 5;
