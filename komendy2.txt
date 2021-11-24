@@ -24,3 +24,33 @@ UPDATE statek SET max_ladownosc=max_ladownosc * 0.7;
 
 ALTER TABLE postac ADD CONSTRAINT CHK_wiek CHECK (wiek<1000);
 
+ALTER TABLE postac MODIFY  rodzaj ENUM('wiking', 'syrena', 'ptak', 'kobieta','waz');
+
+INSERT INTO postac(id_postac, nazwa, rodzaj, data_ur, wiek, pesel) VALUES (8, 'Loko', 'waz','2012-11-11', '40', '78945612360');
+
+CREATE TABLE marynarz AS SELECT * FROM postac WHERE statek='1';
+
+ALTER TABLE marynarz ADD PRIMARY KEY(pesel);
+
+ALTER TABLE marynarz ADD FOREIGN KEY(statek) REFERENCES statek(nazwa_statku) ON DELETE CASCADE;
+
+UPDATE postac SET statek= NULL;
+
+UPDATE marynarz SET statek= NULL;
+
+DELETE FROM postac WHERE nazwa='agbvv';
+
+DELETE FROM statek;
+
+ALTER TABLE postac  DROP FOREIGN KEY postac_ibfk_1;
+
+ALTER TABLE marynarz  DROP FOREIGN KEY marynarz_ibfk_1;
+
+DROP TABLE statek;
+
+CREATE TABLE zwierz (id_zwierz INT AUTO_INCREMENT PRIMARY KEY,  nazwa VARCHAR(40), wiek INT);
+
+INSERT INTO zwierz VALUES (1, 'Loko', '40');
+
+INSERT INTO zwierz VALUES (2, 'Drozd', '23');
+
