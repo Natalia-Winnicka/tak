@@ -1,0 +1,10 @@
+SELECT AVG(waga) FROM kreatura WHERE rodzaj='wiking';
+
+SELECT rodzaj, COUNT(rodzaj), AVG(waga)FROM kreatura GROUP BY rodzaj; 
+
+SELECT rodzaj,  AVG(wiek)FROM kreatura GROUP BY rodzaj;
+
+...............................................
+
+
+
