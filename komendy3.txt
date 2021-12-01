@@ -23,3 +23,19 @@ SELECT * FROM zasob WHERE MONTH(dataPozyskania)=7 or MONTH(dataPozyskania)=8;
 SELECT * FROM zasob WHERE rodzaj is not NULL order by waga asc;
 
 SELECT * FROM kreatura order by dataUr asc limit 5;
+
+SELECT rodzaj  FROM zasob group by rodzaj;
+
+SELECT nazwa, rodzaj from kreatura WHERE rodzaj LIKE 'wi%';
+
+SELECT CONCAT(nazwa, ' ', rodzaj) as kolumna from kreatura WHERE rodzaj LIKE 'wi%';
+
+SELECT nazwa, waga*ilosc AS calkowitaWaga, dataPozyskania, rodzaj FROM zasob WHERE YEAR(dataPozyskania)BETWEEN 2000 AND 2007;
+
+SELECT nazwa, waga*0,7 AS MasaWlasciwa, dataPozyskania, rodzaj FROM zasob;
+
+SELECT * FROM zasob WHERE rodzaj IS NULL;
+
+SELECT DISTINCT(nazwa) FROM zasob WHERE  nazwa LIKE 'Ba%' or nazwa LIKE '%os' order by nazwa asc;
+
+
